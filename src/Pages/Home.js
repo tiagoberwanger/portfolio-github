@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../Components/Header';
-import Portfolio from '../Components/Portfolio';
-import Contact from '../Components/Contact';
+import Header from '../Templates/Header';
+import Portfolio from '../Templates/Portfolio';
+import Contact from '../Templates/Contact';
 
 function Home() {
     return (
