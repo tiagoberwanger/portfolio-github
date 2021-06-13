@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import { fetchName } from '../Services/FetchAPI';
-import { Image } from 'react-bootstrap';
+import { Image, Jumbotron} from 'react-bootstrap';
+import SocialIcons from '../Components/SocialIcons'
+import Languages from '../Components/Languages'
 
 function Header() {
     const [loading, setLoading] = useState(true);
@@ -18,11 +20,25 @@ function Header() {
         console.log(err.message);
       })
     }, [])
+
+    const headerDiv = {
+      textAlign: 'center'
+    }
+
+    const imageStyle = {
+      margin: '20px',
+      borderRadius: '50%',
+    }
+
     return (
       loading ? <p>...loading</p> : (
-        <div>
-          <Image src={user.avatar_url} rounded />
-        </div>
+        <Jumbotron style={headerDiv}>
+          <Image style={imageStyle} src={user.avatar_url} fluid />
+          <h2>Tiago Berwanger</h2>
+          <h4>Fullstack Developer</h4>
+          <SocialIcons />
+          <Languages />
+        </Jumbotron>
       )
     );
 }

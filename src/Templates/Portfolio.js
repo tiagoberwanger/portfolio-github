@@ -10,7 +10,13 @@ function Portfolio() {
       setLoading(true);
       fetchListRepos('tiagoberwanger')
       .then((response) => {
-        setCards(response)
+        const reposArray = [];
+        response.map((repo) => {
+          if (repo.stargazers_count > 0) {
+            reposArray.push(repo)
+          }
+        })
+        setCards(reposArray)
         setLoading(false);
       })
       .catch((err) =>{
@@ -19,11 +25,15 @@ function Portfolio() {
       })
     }, [])
 
+    const mainDiv = {
+      marginTop: '50px',
+      textAlign: 'center'
+    }
+
     return (
       loading ? <p>...loading</p> : (
-      <div>
-        Portfólio
-        {console.log(cards)}
+      <div style={mainDiv}>
+        <h2>Portfólio</h2>
         {cards.map((card, index) => <ProjectCard card={card} index={index} /> )}
       </div>
     ));

@@ -1,16 +1,19 @@
 import React from 'react';
 import Header from '../Templates/Header';
 import Portfolio from '../Templates/Portfolio';
-import Contact from '../Templates/Contact';
+import Footer from '../Templates/Footer';
 
 function Home() {
-    return (
-        <div>
-            <Header />
-            <Portfolio />
-            <Contact />
-        </div>
-    );
+  const backgroundStyles = {
+    backgroundColor: 'whitesmoke'
+  }
+  return (
+    <div style={backgroundStyles}>
+      <Header />
+      <Portfolio />
+      <Footer />
+    </div>
+  );
 }
 
 export default Home;

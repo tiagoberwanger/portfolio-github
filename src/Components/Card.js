@@ -3,14 +3,38 @@ import { Card } from 'react-bootstrap';
 
 function ProjectCard(props) {
   const { index, card } = props;
+
+  const cardStyle = {
+    backgroundColor: '#d2f8d2',
+    margin: '50px',
+    textAlign: 'center',
+
+  }
+
+  const cardTitleStyle = {
+    fontSize: '20px',
+    fontWeight: 'bold'
+  }
+
+  const cardLinkStyle = {
+    backgroundColor: 'white',
+    color: 'black',
+    border: '2px solid #04AA6D',
+    padding: '10px 20px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+    fontSize: '16px',
+  }
+
   return (
     <div>
-      <Card >
+      <Card style={cardStyle}>
       <Card.Body>
-        <Card.Title>{card.name}</Card.Title>
-        <Card.Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum id lectus nec gravida. Curabitur sollicitudin molestie hendrerit. Pellentesque dignissim ut eros quis finibus.</Card.Text>
+        <Card.Title style={cardTitleStyle} key={`title-${index}`}>{card.name}</Card.Title>
+        <Card.Text key={`text-${index}`}>{card.description}</Card.Text>
       </Card.Body>
-      <Card.Link href={card.html_url}>Link</Card.Link>
+      <Card.Link style={cardLinkStyle} key={`link-${index}`} href={card.html_url}>Repositório</Card.Link>
       </Card>
     </div>
   );
