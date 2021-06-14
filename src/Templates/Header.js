@@ -26,7 +26,6 @@ function Header() {
     }
 
     const imageStyle = {
-      margin: '20px',
       borderRadius: '50%',
     }
 
